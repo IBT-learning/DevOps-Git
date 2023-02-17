@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git verify') {
             steps {
-                echo $CHOICES
+                echo '$CHOICES'
             }
         }
         stage('Adding stage from jenkinsfile') {
