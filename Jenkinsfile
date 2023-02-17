@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters{
+     string(name:'Branch_name', defaultValue:'main', description:'enter branch to build')
+    }
 
     stages {
         stage('Hello') {
@@ -10,7 +13,7 @@ pipeline {
         stage('Git clone') {
             steps {
                 echo 'cloning from github'
-                git branch: 'main', changelog: false, credentialsId: 'ibt', poll: false, url: 'https://github.com/IBT-learning/DevOps-Git.git'
+                git branch: $Branch_name, changelog: false, credentialsId: 'ibt', poll: false, url: 'https://github.com/IBT-learning/DevOps-Git.git'
             }
         }
         stage('Git verify') {
