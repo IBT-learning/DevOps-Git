@@ -18,5 +18,10 @@ pipeline {
                 sh 'ls -lrt' 
             }
         }
+        stage('Adding stage from jenkinsfile') {
+            steps {
+                sh 'pwd' 
+            }
+        }
     }
 }
