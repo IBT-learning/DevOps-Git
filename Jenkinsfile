@@ -2,6 +2,7 @@ pipeline {
     agent any
     parameters{
      string(name:'Branch_name', defaultValue:'main', description:'enter branch to build')
+     choice(name: 'CHOICES', choices: ['one', 'two', 'three'], description: '')
     }
 
     stages {
@@ -18,7 +19,7 @@ pipeline {
         }
         stage('Git verify') {
             steps {
-                sh 'ls -lrt' 
+                echo $CHOICES
             }
         }
         stage('Adding stage from jenkinsfile') {
