@@ -23,6 +23,11 @@ pipeline {
             }
         }
         stage('Adding stage from jenkinsfile') {
+        when{
+            expression{
+                BRANCH_NAME == 'main'
+            }
+        }
             steps {
                 sh 'pwd' 
             }
