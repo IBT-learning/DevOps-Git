@@ -17,5 +17,6 @@ pipeline {
             steps {
                 sh 'ls -lrt' 
             }
+        }
     }
 }
