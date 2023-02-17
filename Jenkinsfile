@@ -23,5 +23,10 @@ pipeline {
                 sh 'pwd' 
             }
         }
+        stage('testing hooks') {
+            steps {
+                echo "it worked automatically"
+            }
+        }
     }
 }
