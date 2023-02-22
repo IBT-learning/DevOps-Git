@@ -12,7 +12,7 @@ pipeline {
         }
             steps { 
                 echo "hello"
-                echo $VERSION
+                echo '$VERSION'
             }
         }
         stage('Git clone') {
