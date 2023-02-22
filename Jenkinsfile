@@ -37,5 +37,10 @@ pipeline {
                 echo "it worked automatically"
             }
         }
+        stage('sending mail'){
+        steps {
+            emailext attachLog: true, body: 'from jenkins pipeline', recipientProviders: [buildUser()], replyTo: 'no-reply@ibt-jenkins.co', subject: 'Testing', to: 'gunjanvm7@gmail.com'
+        }
+        }
     }
 }
