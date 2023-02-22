@@ -7,8 +7,12 @@ pipeline {
 
     stages {
         stage('Hello') {
+        environment {
+           VERSION = "1.2.0"
+        }
             steps { 
                 echo "hello"
+                echo $VERSION
             }
         }
         stage('Git clone') {
