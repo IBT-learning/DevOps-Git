@@ -16,6 +16,11 @@ pipeline {
             steps {
                 echo 'Go to work and get some moneyyyyyyyy'
             }
-        }
+         }
+         stage('Gunjan') {
+            steps  {
+                echo 'Gunjan is wise... best believe'
+             }
+          }
     }
 }
