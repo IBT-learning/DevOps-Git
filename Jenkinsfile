@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Hello') {
         environment {
-           VERSION = '1.2.0'
+           VERSION = "1.2.0"
         }
             steps { 
                 echo "hello"
