@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Build muscle by going to the gym'
             }
         }
-        stage('Test') {
+        stage('Eat') {
             steps {
-                echo 'Testing..'
+                echo 'Rest, eat and or sleep'
             }
         }
-        stage('Deploy') {
+        stage('Work') {
             steps {
-                echo 'Deploying....'
+                echo 'Go to work and get some moneyyyyyyyy'
             }
         }
     }
