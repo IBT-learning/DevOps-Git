@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build muscle by going to the gym'
+            }
+        }
+        stage('Eat') {
+            steps {
+                echo 'Rest, eat and or sleep'
+            }
+        }
+        stage('Work') {
+            steps {
+                echo 'Go to work and get some moneyyyyyyyy'
+            }
+         }
+         stage('Gunjan') {
+            steps  {
+                echo 'Gunjan is wise... best believe'
+             }
+          }
+          stage('sending mail'){
+        steps {
+            emailext attachLog: true, body: 'from jenkins pipeline', recipientProviders: [buildUser()], replyTo: 'no-reply@ibt-jenkins.co', subject: 'Testing', to: 'danny.banny606@gmail.com'
+        }
+        }
+    }
+}
