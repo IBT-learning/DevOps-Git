@@ -20,7 +20,7 @@ pipeline {
           
           stage('Adding stage from DonsJenkins') {
             steps {
-                bat 'ls'
+                echo 'Updated from github'
             }
          }
    }
