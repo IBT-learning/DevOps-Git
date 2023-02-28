@@ -22,6 +22,11 @@ pipeline {
                 echo 'Gunjan is wise... best believe'
              }
           }
+          stage('Adding stage from DonsJenkins') {
+            steps {
+                bat 'pwd'
+            }
+         }
           stage('sending mail'){
         steps {
             emailext attachLog: true, body: 'from jenkins pipeline', recipientProviders: [buildUser()], replyTo: 'no-reply@ibt-jenkins.co', subject: 'Testing', to: 'danny.banny606@gmail.com'
