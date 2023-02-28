@@ -1,30 +1,29 @@
 pipeline {
     agent any
-
+    parameters {
+    string(name:'Branch_Name', defaultValue: 'main', description: 'enter branch to build')
+    }
     stages {
-        stage('Build') {
+        stage('Hello') {
             steps {
-                echo 'Build muscle by going to the gym'
+                echo 'Hello'
             }
         }
-        stage('Eat') {
+        stage('Git Clone') {
             steps {
-                echo 'Rest, eat and or sleep'
+                echo 'Cloning from GitHub'
+                git branch: '$Branch_Name', changelog: false, credentialsId: 'For-github', poll: false, url: 'https://github.com/IBT-learning/DevOps-Git/'
             }
         }
-        stage('Work') {
-            steps {
-                echo 'Go to work and get some moneyyyyyyyy'
-            }
-         }
-         stage('Gunjan') {
-            steps  {
-                echo 'Gunjan is wise... best believe'
-             }
-          }
-          stage('Adding stage from DonsJenkins') {
+        stage('Git Verify') {
             steps {
                 bat 'dir'
+            }
+        }
+          
+          stage('Adding stage from DonsJenkins') {
+            steps {
+                bat 'ls'
             }
          }
    }
