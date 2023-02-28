@@ -24,13 +24,8 @@ pipeline {
           }
           stage('Adding stage from DonsJenkins') {
             steps {
-                bat 'pwd'
+                bat 'dir'
             }
          }
-          stage('sending mail'){
-        steps {
-            emailext attachLog: true, body: 'from jenkins pipeline', recipientProviders: [buildUser()], replyTo: 'no-reply@ibt-jenkins.co', subject: 'Testing', to: 'danny.banny606@gmail.com'
-        }
-        }
-    }
+   }
 }
