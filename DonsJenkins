@@ -6,11 +6,16 @@ pipeline {
     }
        stages {
         stage('Hello') {
+            environment {
+            VERSION = '1.2.0'
+            }
             steps {
                 echo 'Hello'
+                echo $VERSION
             }
         }
-        stage('Git Clone') {
+
+               stage('Git Clone') {
             steps {
                 echo 'Cloning from GitHub'
                 git branch: '$Branch_name', changelog: false, credentialsId: 'For-github', poll: false, url: 'https://github.com/IBT-learning/DevOps-Git/'
@@ -23,8 +28,9 @@ pipeline {
         }
           
           stage('Adding stage from DonsJenkins') {
-            steps {
-                echo 'Updated from github'
+            when {
+                expression{
+                Branch_name == 'main'
             }
          }
          stage('Sending email') {
