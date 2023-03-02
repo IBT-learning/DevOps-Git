@@ -11,7 +11,7 @@ pipeline {
             }
             steps {
                 echo 'Hello'
-                echo $VERSION
+                echo '$VERSION'
             }
         }
 
