@@ -31,5 +31,11 @@ pipeline {
          steps {emailext attachLog: true, body: 'from testing pipeline...', replyTo: 'no-reply@ibt-jenkins.co', subject: 'Testing', to: 'danny.banny606@gmail.com'
          }
          }
-    }
+
+   }
+   post {
+   always {
+   echo 'I will always say hello again!'
+   }
+   }
 }
