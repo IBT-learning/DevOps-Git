@@ -1,0 +1,10 @@
+# Reasons to Learn DevOps in 2023
+
+- Quicker bug fixes: Extremely easy to keep code free of bugs and defects
+
+- Improved Performance: Reduces deployment time and infrastructure cost
+
+- Better collaboration: Facilitates better communication with the organization than traditional team
+
+Reference:
+https://www.turing.com/blog/why-choose-devops-career-this-year/
