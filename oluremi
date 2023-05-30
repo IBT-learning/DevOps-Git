@@ -1,0 +1,18 @@
+# first basic lab in python
+
+
+print("hello world")
+Firstname = "tayo"
+print(Firstname)
+
+Lastname = "ajagun"
+print(Lastname)
+
+Firstname = Firstname.upper()
+print(Firstname)
+
+Lastname = Lastname.upper()
+print(Lastname)
+
+print(Firstname + " " + Lastname iprint("hello Mr" + " " + Firstname + " " + Lastname)
+
