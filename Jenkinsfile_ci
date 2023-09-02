@@ -4,13 +4,13 @@ parameters{
 choice(name: 'Branch_Name', choices:['main',feature-yusha], description:'setting up the parameters to use only main and feature yusha branch')
 }
 environment{
-name = 'Yusha Iqbal'
-project_description = ''This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven''
+name = "Yusha Iqbal"
+project_description = "This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven"
 }
 stages{
 stage('Introducing my self'){
 steps{
-sh 'echo $name'
+sh 'echo 'Hello My name is '$name'
 }
 }
 stage('description of the project'){
