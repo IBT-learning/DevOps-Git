@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-    choice(name:'Branch_Name',choices:['master','sample'],description:'giving the branch choice')
+    choice(name:'Branch_Name',choices:['main','feature-yusha'],description:'giving the branch choice')
     }
     stages{
         stage('hello world'){
@@ -9,19 +9,19 @@ pipeline {
                 echo 'Hello World'
             }
         }
-        stage('runing pwershell command'){
+        stage('runing shell command'){
         steps{
-        bat 'dir'
+        sh 'ls'
             }
         }
         stage('adding git checkout'){
         when{
         expression{
-        env.BRANCH_NAME == 'sample'
+        env.BRANCH_NAME == 'feature-yusha'
         }
         }
         steps{
-           git branch: '$Branch_Name', credentialsId: 'capstone', url: 'https://github.com/aiqbal8520/capstone-project.git'
+           git branch: '$Branch_Name', credentialsId: 'ibt_yusha_github', url: 'https://github.com/IBT-learning/DevOps-Git.git'
         }
         }
     }
