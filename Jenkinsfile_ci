@@ -11,5 +11,12 @@ steps{
 echo 'This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven'
 }
 }
+stage(validate){
+steps{
+withMaven(maven: 'maven_3.8') {
+    sh mvn validate
+}
+}
+}
 }
 }
