@@ -3,6 +3,7 @@ agent any
 parameters{
 choice(name: 'Branch_Name', choices:['main',feature-yusha], description:'setting up the parameters to use only main and feature yusha branch')
 }
+stages{
 stage('git checkout'){
 steps{
 echo 'git checkout to feature-yusha'
