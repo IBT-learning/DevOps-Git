@@ -2,14 +2,13 @@ pipeline{
 agent any
 stages{
 stage('Introducing my self'){
+steps{
 echo 'Hi My name is Yusha Iqbal'
 }
-stage('description of the project'){
-echo 'This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven'
 }
-stage('mvn validate'){
-withMaven(maven: 'maven_3.8') {
-mvn validate
+stage('description of the project'){
+steps{
+echo 'This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven'
 }
 }
 }
