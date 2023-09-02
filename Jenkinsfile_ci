@@ -15,5 +15,16 @@ steps{
 echo "${env.project_description}"
 }
 }
+stage('git checkout'){
+when{
+expression{
+env.BRANCH_NAME = 'feature-yusha'
+}
+}
+steps{
+echo 'git checkout to feature-yusha'
+git branch: 'feature-yusha', credentialsId: 'ibt_yusha_github', url: 'https://github.com/IBT-learning/DevOps-Git.git'
+}
+}
 }
 }
