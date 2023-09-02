@@ -15,7 +15,7 @@ sh 'echo "Hello my name is $name" '
 }
 stage('description of the project'){
 steps{
-echo "{$env.$project_description}"
+echo "${env.project_description}"
 }
 }
 stage('git checkout'){
