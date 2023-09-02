@@ -3,39 +3,19 @@ agent any
 parameters{
 choice(name: 'Branch_Name', choices:['main',feature-yusha], description:'setting up the parameters to use only main and feature yusha branch')
 }
+environment{
+name = "Yusha Iqbal"
+project_description = "This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven"
+}
 stages{
-stage('git checkout'){
+stage('Introducing my self'){
 steps{
-echo 'git checkout to feature-yusha'
-git branch: '$Branch_Name', credentialsId: 'ibt_yusha_github', url: 'https://github.com/IBT-learning/DevOps-Git.git'
+sh 'echo "Hello my name is $name" '
 }
 }
-stage(validate){
+stage('description of the project'){
 steps{
-withMaven(maven: 'maven_3.8') {
-    sh 'mvn validate'
-}
-}
-}
-stage(compile){
-steps{
-withMaven(maven: 'maven_3.8') {
-    sh 'mvn compile'
-}
-}
-}
-stage(test){
-steps{
-withMaven(maven: 'maven_3.8') {
-    sh 'mvn test'
-}
-}
-}
-stage(package){
-steps{
-withMaven(maven: 'maven_3.8') {
-    sh 'mvn package'
-}
+echo "${env.project_description}"
 }
 }
 }
