@@ -10,7 +10,7 @@ project_description = "This is Jenkins Project I am creating to understand and m
 stages{
 stage('Introducing my self'){
 steps{
-sh 'echo "Hello my name is $name" '
+sh 'echo "$name" '
 }
 }
 stage('description of the project'){
