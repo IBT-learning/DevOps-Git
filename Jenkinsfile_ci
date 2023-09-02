@@ -14,7 +14,7 @@ echo 'This is Jenkins Project I am creating to understand and master Jenkinsd pi
 stage(validate){
 steps{
 withMaven(maven: 'maven_3.8') {
-    sh mvn validate
+    sh 'mvn validate'
 }
 }
 }
