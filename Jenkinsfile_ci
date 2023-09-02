@@ -5,8 +5,8 @@ name = "Yusha Iqbal"
 project_description = "This is Jenkins Project I am creating to understand and master Jenkinsd pipeline build with maven"
 }
 parameters{
-    choice(name:'Branch_Name',choices:['main','feature-yusha'],description:'giving the branch choice')
-    }
+choice(name:'Branch_Name',choices:['main','feature-yusha'],description:'giving the branch choice')
+}
 stages{
 stage('Introducing my self'){
 steps{
@@ -18,14 +18,13 @@ steps{
 echo "${env.project_description}"
 }
 }
-stage('git checkout'){
+stage('adding git checkout'){
 when{
 expression{
-env.BRANCH_NAME = 'feature-yusha'
+env.BRANCH_NAME == 'feature-yusha'
 }
 }
 steps{
-echo 'git checkout to feature-yusha'
 git branch: '$Branch_Name', credentialsId: 'ibt_yusha_github', url: 'https://github.com/IBT-learning/DevOps-Git.git'
 }
 }
