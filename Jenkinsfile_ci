@@ -49,6 +49,16 @@ withMaven(maven: 'maven_3.8') {
 }
 }
 }
+stage('Sonar Qube analysis'){
+environment {
+SonarScann = tool 'ibt-sonarqube';
+}
+steps{
+withSonarQubeEnv(credentialsId: 'SQ-student', installationName: 'IBT sonarqube'){
+sh "${env.SonarScann}/bin/sonar-scanner"
+}
+}
+}
 stage('package'){
 steps{
 withMaven(maven: 'maven_3.8') {
