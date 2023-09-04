@@ -65,6 +65,7 @@ withMaven(maven: 'maven_3.8') {
     sh 'mvn package'
 }
 }
+}
 stage('Dependecy Check'){
 steps{
 dependencyCheck additionalArguments:'''
@@ -73,7 +74,6 @@ dependencyCheck additionalArguments:'''
 -f "ALL"
 --prettyPrint''', odcInstallation: 'dependency-check'
 dependencyCheckPublisher patter: 'dependency-check-report-yusha.xml'
-}
 }
 }
 }
