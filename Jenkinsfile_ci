@@ -54,7 +54,7 @@ environment {
 SonarScann = tool 'ibt-sonarqube';
 }
 steps{
-withSonarQubeEnv(credentialsId: 'SQ-student', installationName: 'IBT sonarqube'){
+withSonarQubeEnv(credentialsId: 'student-sonar-token', installationName: 'IBT sonarqube'){
 sh "${env.SonarScann}/bin/sonar-scanner"
 }
 }
