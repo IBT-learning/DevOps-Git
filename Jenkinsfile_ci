@@ -73,7 +73,7 @@ dependencyCheck additionalArguments:'''
 -s "./"
 -f "ALL"
 --prettyPrint''', odcInstallation: 'dependency-check'
-dependencyCheckPublisher patter: 'dependency-check-report-yusha.xml'
+dependencyCheckPublisher patter: 'dependency-check-report.xml'
 }
 }
 }
