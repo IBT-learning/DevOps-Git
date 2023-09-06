@@ -80,7 +80,7 @@ stage('deploy to dev'){
 steps{
 withMaven(maven: 'maven_3.8'){
 withCredentials([file(credentialsId: 'mvn_settings_yusha', variable: 'yusha_settings')]){
-sh 'mvn deploy -s $mvn_settings_managed'
+sh 'mvn deploy -s $yusha_settings'
 }
 }
 }
