@@ -99,5 +99,24 @@ sh 'mvn deploy -s $yusha_settings'
             }
         }
        }
+stage('deployment approval'){
+steps{
+input id: 'Approval', message: 'Do you want to approve the deployment?', ok: 'yes', parameters: [password(defaultValue: 'Yusha@70', name: 'password_to_approve')], submitter: 'yusha70'
+}
+}
+stage('Deploy to prod server')
+       {
+        steps{
+            script{
+                def remote = [name: 'yusha-prod', host: '198.199.122.145', allowAnyHosts: true]
+                withCredentials([usernamePassword(credentialsId: 'dev_server_yusha', passwordVariable: 'password', usernameVariable: 'username')]){
+                    remote.password = password
+                    remote.user = username
+                    sshPut remote: remote, from: 'target/yush-app-1.0-SNAPSHOT.jar' , into: '/opt/tomcat/webapps'
+                }
+
+            }
+        }
+       }
 }
 }
