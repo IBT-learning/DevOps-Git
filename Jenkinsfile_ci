@@ -85,5 +85,19 @@ sh 'mvn deploy -s $yusha_settings'
 }
 }
 }
+ stage('Deploy to Dev server')
+       {
+        steps{
+            script{
+                def remote = [name: 'yusha-dev', host: '68.183.108.4', allowAnyHosts: true]
+                withCredentials([usernamePassword(credentialsId: 'dev_server_yusha', passwordVariable: 'password', usernameVariable: 'username')]){
+                    remote.password = password
+                    remote.user = username
+                    sshPut remote: remote, from: 'target/yush-app-1.0-SNAPSHOT.jar' , into: '/opt/tomcat/webapps'
+                }
+
+            }
+        }
+       }
 }
 }
