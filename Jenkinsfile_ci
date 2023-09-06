@@ -79,7 +79,7 @@ dependencyCheckPublisher pattern: 'dependency-check-report-yusha.xml'
 stage('deploy to dev'){
 steps{
 withMaven(maven: 'maven_3.8'){
-configFileProvider([configFile(field: 'artifactory-settings', variable: 'mvn_settings_managed')]){
+withCredentials([file(credentialsId: 'mvn_settings_yusha', variable: 'yusha_settings')]){
 sh 'mvn deploy -s $mvn_settings_managed'
 }
 }
