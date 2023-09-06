@@ -73,7 +73,7 @@ dependencyCheck additionalArguments:'''
 -s "./"
 -f "ALL"
 --prettyPrint''', odcInstallation: 'dependency-check'
-dependencyCheckPublisher pattern: 'dependency-check-report-yusha.xml'
+dependencyCheckPublisher pattern: 'dependency-check-report.xml'
 }
 }
 stage('deploy to dev'){
