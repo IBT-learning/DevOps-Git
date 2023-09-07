@@ -1,3 +1,4 @@
+@Library('jenkins-library')_
 pipeline{
 agent any
 environment{
@@ -50,13 +51,8 @@ withMaven(maven: 'maven_3.8') {
 }
 }
 stage('Sonar Qube analysis'){
-environment {
-SonarScann = tool 'ibt-sonarqube';
-}
 steps{
-withSonarQubeEnv(credentialsId: 'student-sonar-token', installationName: 'IBT sonarqube'){
-sh "${env.SonarScann}/bin/sonar-scanner"
-}
+sonarScan()
 }
 }
 stage('package'){
