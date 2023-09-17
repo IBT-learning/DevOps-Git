@@ -72,6 +72,23 @@ dependencyCheck additionalArguments:'''
 dependencyCheckPublisher pattern: 'dependency-check-report.xml'
 }
 }
+stage('configure dev server'){
+when{
+expression{
+env.BRANCH_NAME == 'feature-yusha'
+}
+}
+steps{
+ansiblePlaybook{
+become: true,
+colorized: true,
+credentialsId: 'yusha_tomcat',
+disableHostKeyChecking: true,
+inventory: 'hosts',
+playbook: 'tomcat.yaml'
+}
+}
+}
 stage('deploy to dev'){
 steps{
 withMaven(maven: 'maven_3.8'){
@@ -86,7 +103,7 @@ sh 'mvn deploy -s $yusha_settings'
         steps{
             script{
                 def remote = [name: 'yusha-dev', host: '68.183.108.4', allowAnyHosts: true]
-                withCredentials([usernamePassword(credentialsId: 'dev_server_yusha', passwordVariable: 'password', usernameVariable: 'username')]){
+                withCredentials([usernamePassword(credentialsId: ''yusha_tomcat'', passwordVariable: 'password', usernameVariable: 'username')]){
                     remote.password = password
                     remote.user = username
                     sshPut remote: remote, from: 'target/yush-app-1.0-SNAPSHOT.jar' , into: '/opt/tomcat/webapps'
@@ -104,8 +121,8 @@ stage('Deploy to prod server')
        {
         steps{
             script{
-                def remote = [name: 'yusha-prod', host: '198.199.122.145', allowAnyHosts: true]
-                withCredentials([usernamePassword(credentialsId: 'dev_server_yusha', passwordVariable: 'password', usernameVariable: 'username')]){
+                def remote = [name: 'yusha-prod', host: '68.183.108.4', allowAnyHosts: true]
+                withCredentials([usernamePassword(credentialsId: 'yusha_tomcat', passwordVariable: 'password', usernameVariable: 'username')]){
                     remote.password = password
                     remote.user = username
                     sshPut remote: remote, from: 'target/yush-app-1.0-SNAPSHOT.jar' , into: '/opt/tomcat/webapps'
