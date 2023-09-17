@@ -82,7 +82,7 @@ steps{
 ansiblePlaybook{
 become: true,
 colorized: true,
-credentialsId: 'yusha_tomcat',
+credentialsId: 'yusha-ssh',
 disableHostKeyChecking: true,
 inventory: 'hosts',
 playbook: 'tomcat.yaml'
