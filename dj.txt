@@ -1,1 +1,2 @@
 adding dj.txt
+fix bugs dj.txt
